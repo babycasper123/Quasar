@@ -1,22 +1,43 @@
 <template>
-  <q-layout view="hHh lpR fff">
+  <q-layout view="hHh LpR fff">
     <q-header elevated class="bg-primary text-white" height-hint="98">
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
-          </q-avatar>
-          Title
-        </q-toolbar-title>
+        <q-toolbar-title> Portalia </q-toolbar-title>
 
         <q-btn dense flat round icon="menu" @click="toggleRightDrawer" />
       </q-toolbar>
     </q-header>
 
     <q-drawer show-if-above v-model="drawerLeft" side="left" bordered>
-      <!-- drawer content -->
+      <q-list bordered>
+        <q-expansion-item
+          group="somegroup"
+          icon="explore"
+          label="First"
+          default-opened
+          header-class="text-primary"
+        >
+          <q-item clickable v-ripple :inset-level="1.25">
+            <div>
+              <q-item-section class="">Menu item</q-item-section>
+            </div>
+          </q-item>
+          <q-item clickable v-ripple :inset-level="1.25">
+            <div>
+              <q-item-section class="">Menu item 2</q-item-section>
+            </div>
+          </q-item>
+          <q-item clickable v-ripple :inset-level="1.25">
+            <div>
+              <q-item-section class="">Menu item 3</q-item-section>
+            </div>
+          </q-item>
+        </q-expansion-item>
+
+        <q-separator />
+      </q-list>
     </q-drawer>
 
     <q-drawer v-model="drawerRight" side="right" overlay bordered>
@@ -24,15 +45,12 @@
     </q-drawer>
 
     <q-page-container>
-      <router-view class="q-pa-md"/>
+      <router-view class="q-pa-md" />
     </q-page-container>
 
     <q-footer elevated class="bg-grey-8 text-white">
       <q-toolbar>
         <q-toolbar-title>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
-          </q-avatar>
           <div>Title</div>
         </q-toolbar-title>
       </q-toolbar>

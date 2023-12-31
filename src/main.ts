@@ -13,7 +13,7 @@ app.use(createPinia())
 app.use(Quasar, {
   config: {
     brand: {
-      primary: '#341f97'
+      primary: '#05c46b'
     }
   }
 })
