@@ -10,31 +10,39 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer show-if-above v-model="drawerLeft" side="left" bordered>
+    <q-drawer show-if-above v-model="drawerLeft" side="left" bordered :width="200">
       <q-list bordered>
         <q-expansion-item
           group="somegroup"
           label="User portal"
           default-opened
           header-class="text-primary"
+          active-class="grey-3"
+          icon="person"
         >
           <router-link to="/">
-            <q-item clickable v-ripple :inset-level="1.25">
-              <q-item-section class="">Users</q-item-section>
+            <q-item clickable v-ripple :inset-level="0.25">
+              <q-item-section>Users</q-item-section>
             </q-item>
           </router-link>
           <router-link to="/new-user">
-            <q-item clickable v-ripple :inset-level="1.25">
-              <q-item-section class="">New user</q-item-section>
+            <q-item clickable v-ripple :inset-level="0.25">
+              <q-item-section>New user</q-item-section>
             </q-item>
           </router-link>
         </q-expansion-item>
       </q-list>
       <q-list bordered>
-        <q-expansion-item group="somegroup" label="Shop" default-opened header-class="text-primary">
+        <q-expansion-item
+          group="somegroup"
+          label="Shop"
+          header-class="text-primary"
+          active-class="grey-3"
+          icon="shopping_cart"
+        >
           <router-link to="/shop">
-            <q-item clickable v-ripple :inset-level="1.25">
-              <q-item-section class="">Grocery</q-item-section>
+            <q-item clickable v-ripple :inset-level="0.25">
+              <q-item-section>Grocery</q-item-section>
             </q-item>
           </router-link>
         </q-expansion-item>
