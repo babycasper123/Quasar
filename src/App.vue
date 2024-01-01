@@ -14,29 +14,21 @@
       <q-list bordered>
         <q-expansion-item
           group="somegroup"
-          icon="explore"
-          label="First"
+          label="User portal"
           default-opened
           header-class="text-primary"
         >
-          <q-item clickable v-ripple :inset-level="1.25">
-            <div>
-              <q-item-section class="">Menu item</q-item-section>
-            </div>
-          </q-item>
-          <q-item clickable v-ripple :inset-level="1.25">
-            <div>
-              <q-item-section class="">Menu item 2</q-item-section>
-            </div>
-          </q-item>
-          <q-item clickable v-ripple :inset-level="1.25">
-            <div>
-              <q-item-section class="">Menu item 3</q-item-section>
-            </div>
-          </q-item>
+          <router-link to="/">
+            <q-item clickable v-ripple :inset-level="1.25">
+              <q-item-section class="">Users</q-item-section>
+            </q-item>
+          </router-link>
+          <router-link to="/new-user">
+            <q-item clickable v-ripple :inset-level="1.25">
+              <q-item-section class="">New user</q-item-section>
+            </q-item>
+          </router-link>
         </q-expansion-item>
-
-        <q-separator />
       </q-list>
     </q-drawer>
 
@@ -47,20 +39,22 @@
     <q-page-container>
       <router-view class="q-pa-md" />
     </q-page-container>
-
+    <!-- 
     <q-footer elevated class="bg-grey-8 text-white">
       <q-toolbar>
         <q-toolbar-title>
           <div>Title</div>
         </q-toolbar-title>
       </q-toolbar>
-    </q-footer>
+    </q-footer> -->
   </q-layout>
 </template>
 
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-import { ref } from 'vue'
+import { RouterView, useRouter } from 'vue-router'
+import { onMounted, ref } from 'vue'
+
+const router = useRouter()
 const drawerLeft = ref(false)
 const drawerRight = ref(false)
 const toggleRightDrawer = () => {
@@ -69,4 +63,9 @@ const toggleRightDrawer = () => {
 const toggleLeftDrawer = () => {
   drawerLeft.value = !drawerLeft.value
 }
+const allRoutes = router.getRoutes()
+
+onMounted(() => {
+  console.log(JSON.stringify(allRoutes))
+})
 </script>
