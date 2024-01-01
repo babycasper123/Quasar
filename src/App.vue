@@ -30,6 +30,15 @@
           </router-link>
         </q-expansion-item>
       </q-list>
+      <q-list bordered>
+        <q-expansion-item group="somegroup" label="Shop" default-opened header-class="text-primary">
+          <router-link to="/shop">
+            <q-item clickable v-ripple :inset-level="1.25">
+              <q-item-section class="">Grocery</q-item-section>
+            </q-item>
+          </router-link>
+        </q-expansion-item>
+      </q-list>
     </q-drawer>
 
     <q-drawer v-model="drawerRight" side="right" overlay bordered>
